@@ -7,16 +7,13 @@ def scrape_website(url):
     """Scrapes the content of a website and returns the HTML source or an error message."""
     print("Scraping website...", url)
 
-    firefox_driver_path = "/home/abdullahalazmi/Downloads/web_scrapping/geckodriver-v0.35.0-linux64/geckodriver"
-
-    firefox_binary_path = "/usr/lib64/firefox/firefox"
+    geckodriver_path = "/home/abdullahalazmi/Downloads/web_scrapping/geckodriver"
 
     options = webdriver.FirefoxOptions()
-    options.binary_location = firefox_binary_path
-    options.add_argument("--headless")  # Run in headless mode (optional for running without UI)
+    options.add_argument("--headless")
 
     try:
-        driver = webdriver.Firefox(service=Service(firefox_driver_path), options=options)
+        driver = webdriver.Firefox(service=Service(geckodriver_path), options=options)
 
         driver.set_page_load_timeout(30)
 
